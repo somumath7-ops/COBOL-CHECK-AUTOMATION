@@ -10,6 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+        with: 
+          submodules: true
+          lfs: true  
       - name: set up Java
         uses: actions/setup-java@v5
         with:
