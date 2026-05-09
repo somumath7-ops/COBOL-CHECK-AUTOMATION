@@ -38,8 +38,22 @@ jobs:
         run: |
           chmod +x .github/scripts/mainframe_operations.sh
           .github/scripts/mainframe_operations.sh
+  # 1. Ensure Node.js is installed
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # 2. Install Zowe CLI globally
       - name: Install Zowe CLI
-        run: npm install -g @zowe/cli
+        run: npm install -g @zowe/cli@latest
+
+      # 3. Run your script
+      - name: Run Zowe Script
+        run: ./.github/scripts/zowe_operations.sh
+        env:
+          ZOWE_ZOSMF_HOST: ${{ secrets.ZOWE_HOST }}
+          # ... add other credentials
         
      
 
