@@ -31,3 +31,9 @@ jobs:
         run: |
           chmod +x .github/scripts/mainframe_operations.sh
           .github/scripts/mainframe_operations.sh    
+      - name: Set up JDK
+        uses: actions/setup-java@v4 # Or @v2, @v3
+        with:
+          java-version: '17'
+          distribution: 'temurin' # Add this line
+          
