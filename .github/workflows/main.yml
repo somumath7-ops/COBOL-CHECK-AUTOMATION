@@ -19,8 +19,6 @@ jobs:
         with:
           java-version: '25'
           distribution: 'temurin' # Add this 
-          cache: 'maven'
-          check-latest: true  
       - name: Show Java version
         run: java -version
       - name: Setup Mainframe Environment and upload COBOL Check
