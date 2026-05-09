@@ -53,7 +53,9 @@ jobs:
         run: ./.github/scripts/zowe_operations.sh
         env:
           ZOWE_ZOSMF_HOST: ${{ secrets.ZOWE_HOST }}
-          # ... add other credentials
+          ZOWE_USERNAME: ${{secrets.ZOWE_USERNAME}}
+          ZOWE_PASSWORD: ${{secrets.ZOWE_PASSWORD}}
+          
         
      
 
