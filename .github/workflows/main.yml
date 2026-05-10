@@ -21,19 +21,19 @@ jobs:
           distribution: 'temurin' # Add this 
       - name: Show Java version
         run: java -version
-      - name: Create directory and copy files
-        run: |
-          mkdir -p cobolcheck
-          cp -r cobol-check/* cobolcheck/
-          ls -lR cobolcheck/ # Verify copy
+    #  - name: Create directory and copy files
+    #    run: |
+    #      mkdir -p cobolcheck
+    #      cp -r cobol-check/* cobolcheck/
+    #      ls -lR cobolcheck/ # Verify copy
 
       - name: Set up Mainframe Environment and upload COBOL Check
         env:
           ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-          chmod +x .github/scripts/mainframe_operations.sh
-          .github/scripts/mainframe_operations.sh
+          chmod +x .github/scripts/zowe_operations.sh
+          .github/scripts/zowe_operations.sh
       - name: Run COBOL Check on Mainframe
         env:
           ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
