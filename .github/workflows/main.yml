@@ -36,11 +36,7 @@ jobs:
         run: |
           chmod +x .github/scripts/mainframe_operations.sh
           .github/scripts/mainframe_operations.sh
-    # Set working-directory property
-      - name: Run script
-        working-directory: .github/scripts
-        run: ./.github/scripts/mainframe_operations.sh
-
+  
   # 1. Ensure Node.js is installed
       - name: Setup Node.js
         uses: actions/setup-node@v4
