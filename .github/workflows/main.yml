@@ -41,8 +41,9 @@ jobs:
           zowe config init --global-config
           # Configure connection using secrets
           zowe config set "zosmf.host" "${{ secrets.ZOSMF_HOST }}" --global-config
-          zowe config set "zosmf.user" "${{ secrets.ZOSMF_USER }}" --global-config
-          zowe config set "zosmf.password" "${{ secrets.ZOSMF_PASS }}" --global-config
+          zowe config set "zosmf.port" "${{ secrets.ZOSMF_PORT }}" --global-config
+          zowe config set "zosmf.user" "${{ secrets.ZOSMF_USERNAME }}" --global-config
+          zowe config set "zosmf.password" "${{ secrets.ZOSMF_PASSWORD }}" --global-config
 
 
   #2 Main Job - COBOL Check      
