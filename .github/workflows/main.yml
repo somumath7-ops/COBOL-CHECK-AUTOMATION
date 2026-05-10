@@ -23,9 +23,9 @@ jobs:
         run: java -version
       - name: Create directory and copy files
         run: |
-          mkdir -p cobcheck
-          cp -r cob-check/* cobcheck/
-          ls -lR cobcheck/ # Verify copy
+          mkdir -p cobolcheck
+          cp -r cobol-check/* cobolcheck/
+          ls -lR cobolcheck/ # Verify copy
 
       - name: Set up Mainframe Environment and upload COBOL Check
         env:
