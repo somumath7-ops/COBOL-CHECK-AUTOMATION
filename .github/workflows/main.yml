@@ -5,6 +5,47 @@ on:
     branches: [ main ]
 
 jobs:
+
+  #1. SETUP JAVA AND ZOWE CLI
+
+  setup-java-and-zowe:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        with: 
+          submodules: true
+          lfs: true
+
+      - name: set up Java
+        uses: actions/setup-java@v5
+        with:
+          java-version: '25'
+          distribution: 'temurin' # Add this 
+      - name: Show Java version
+        run: java -version
+
+      # Ensure Node.js is installed
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # Install Zowe CLI globally
+      - name: Install Zowe CLI
+        run: npm install -g @zowe/cli@latest
+
+      - name: Create .zowe directory and config file
+        run: |
+          zowe config init --global
+          # Configure connection using secrets
+          zowe config set "zosmf.host" "${{ secrets.ZOSMF_HOST }}" --global
+          zowe config set "zosmf.user" "${{ secrets.ZOSMF_USER }}" --global
+          zowe config set "zosmf.password" "${{ secrets.ZOSMF_PASS }}" --global
+
+
+  #2 Main Job - COBOL Check      
   cobol-check:
     runs-on: ubuntu-latest
 
@@ -14,36 +55,14 @@ jobs:
         with: 
           submodules: true
           lfs: true  
-      - name: set up Java
-        uses: actions/setup-java@v5
-        with:
-          java-version: '25'
-          distribution: 'temurin' # Add this 
-      - name: Show Java version
-        run: java -version
-
-       # 1. Ensure Node.js is installed
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
-
-      # 2. Install Zowe CLI globally
-      - name: Install Zowe CLI
-        run: npm install -g @zowe/cli@latest 
-    #  - name: Create directory and copy files
-    #    run: |
-    #      mkdir -p cobolcheck
-    #      cp -r cobol-check/* cobolcheck/
-    #      ls -lR cobolcheck/ # Verify copy
 
       - name: Set up Mainframe Environment and upload COBOL Check
         env:
           ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-          chmod +x .github/scripts/zowe_operations.sh
-          .github/scripts/zowe_operations.sh
+              chmod +x .github/scripts/zowe_operations.sh
+              .github/scripts/zowe_operations.sh
       - name: Run COBOL Check on Mainframe
         env:
           ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
@@ -51,11 +70,3 @@ jobs:
         run: |
           chmod +x .github/scripts/mainframe_operations.sh
           .github/scripts/mainframe_operations.sh
-  
-
-
-      
-          
-        
-     
-
