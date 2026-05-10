@@ -21,6 +21,16 @@ jobs:
           distribution: 'temurin' # Add this 
       - name: Show Java version
         run: java -version
+
+       # 1. Ensure Node.js is installed
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      # 2. Install Zowe CLI globally
+      - name: Install Zowe CLI
+        run: npm install -g @zowe/cli@latest 
     #  - name: Create directory and copy files
     #    run: |
     #      mkdir -p cobolcheck
@@ -42,15 +52,7 @@ jobs:
           chmod +x .github/scripts/mainframe_operations.sh
           .github/scripts/mainframe_operations.sh
   
-  # 1. Ensure Node.js is installed
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '24'
 
-      # 2. Install Zowe CLI globally
-      - name: Install Zowe CLI
-        run: npm install -g @zowe/cli@latest
 
       
           
