@@ -65,6 +65,8 @@ jobs:
         env:
          # ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
          # ZOWE_PORT: ${{ secrets.ZOWE_PORT }}
+        
+          ZOWE_CONFIG_PATH: ${{ github.workspace }}/zowe.config.json 
           ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
