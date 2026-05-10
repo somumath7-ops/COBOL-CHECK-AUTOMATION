@@ -1,0 +1,90 @@
+{
+    "$schema": "./zowe.schema.json",
+    "profiles": {
+        "zosmf": {
+            "type": "zosmf",
+            "properties": {
+                "port": 10443
+            },
+            "secure": []
+        },
+        "tso": {
+            "type": "tso",
+            "properties": {
+                "account": "",
+                "codePage": "1047",
+                "logonProcedure": "IZUFPROC"
+            },
+            "secure": []
+        },
+        "ssh": {
+            "type": "ssh",
+            "properties": {
+                "port": 22
+            },
+            "secure": []
+        },
+        "global_base": {
+            "type": "base",
+            "properties": {
+                "host": "204.90.115.200",
+                "rejectUnauthorized": true
+            },
+            "secure": [
+                "user",
+                "password"
+            ]
+        },
+        "cicsZXP": {
+            "type": "cics",
+            "properties": {
+                "protocol": "http",
+                "host": "204.90.115.200",
+                "port": 4868
+            }
+        },
+        "LearnCOBOL": {
+            "profiles": {
+                "zosmf": {
+                    "type": "zosmf",
+                    "properties": {
+                        "port": 10443
+                    }
+                }
+            }
+        },
+        "zosmfTSO": {
+            "type": "tso",
+            "properties": {
+                "account": "FB3",
+                "codepage": 1047,
+                "port": 623
+            }
+        },
+        "zosmfSSH": {
+            "type": "ssh",
+            "properties": {
+                "port": 22
+            }
+        },
+        "zosmfBASE": {
+            "type": "base",
+            "properties": {
+                "host": "204.90.115.200",
+                "rejectUnauthorized": false
+            },
+            "secure": [
+                "user",
+                "password"
+            ]
+        }
+    },
+    "autoStore": true,
+    "defaults": {
+        "zosmf": "zosmf",
+        "tso": "zosmfTSO",
+        "ssh": "zosmfSSH",
+        "base": "zosmfBASE"
+    },
+    "plugins": []
+}
