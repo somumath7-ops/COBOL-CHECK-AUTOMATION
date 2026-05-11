@@ -35,6 +35,7 @@ jobs:
 
       - name: Add npm bin to PATH
         run: echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
+              npm root -g
 
      # - name: Run Zowe Command
      #   run: |
