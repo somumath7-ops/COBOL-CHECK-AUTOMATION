@@ -59,7 +59,7 @@ jobs:
 
   #2 Main Job - COBOL Check      
   cobol-check:
-    if: false
+ #   if: false
     runs-on: ubuntu-latest
     needs: Setup-java-and-zowe
 
@@ -80,7 +80,9 @@ jobs:
           echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
           export PATH=$(npm bin):$PATH
           chmod u+x ./.github/scripts/zowe_operations.sh
-          bash ./.github/scripts/zowe_operations.sh
+           ./.github/scripts/zowe_operations.sh
+        shell: bash
+           
           
       - name: Set up Mainframe Environment and upload COBOL Check
         env:
