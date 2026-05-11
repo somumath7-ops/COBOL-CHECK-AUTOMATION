@@ -30,6 +30,9 @@ jobs:
       - name: Install Zowe CLI
         run: sudo npm install -g @zowe/cli@latest
 
+      - name: Locate Zowe in Git root
+        run: sudo pm list -g @zowe/cli
+
       - name: Add npm bin to PATH
         run: echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
 
