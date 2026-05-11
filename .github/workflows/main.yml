@@ -9,7 +9,7 @@ jobs:
 
   #1. SETUP JAVA AND ZOWE CLI
   Setup-java-and-zowe:
-    runs-on: windows-latest
+    runs-on:  ubuntu-latest
 
     steps:
       - name: set up Java
