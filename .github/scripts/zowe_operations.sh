@@ -2,8 +2,6 @@
 # zowe_operations.sh
 
 # Provide direct path to zowe
-export INSTALL_DIR=/usr/lpp/zowe/v3
-./zowe-install.sh -I
 
 # 1. Ensure npm binaries are in the PATH
 export PATH=$PATH:$(npm config get prefix)/bin
@@ -17,7 +15,7 @@ LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" &>/dev/null; then
 echo "Directory does not exist. Creating it..."
 # Test step to display datasets from ZOS
-call zowe zos-files list data-set "ZOWE_USER.UNEMP.*"
+zowe zos-files list data-set "ZOWE_USER.UNEMP.*"
 #
 zowe zos-files create uss-directory /z/$LOWERCASE_USERNAME/cobolcheck
 else
