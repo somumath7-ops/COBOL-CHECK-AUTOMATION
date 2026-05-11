@@ -2,7 +2,7 @@
 # zowe_operations.sh
 
 # Provide direct path to zowe
-ZOWE_PATH="C:\Users\Arhat Business\AppData\Roaming\npm"
+ZOWE_PATH="/c/Users/Arhat Business/AppData/Roaming/npm"
 $ZOWE_PATH --version
 # 1. Ensure npm binaries are in the PATH
 export PATH=$PATH:$(npm config get prefix)/bin
