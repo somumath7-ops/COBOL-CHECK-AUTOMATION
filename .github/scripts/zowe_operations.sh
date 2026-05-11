@@ -17,7 +17,7 @@ LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" &>/dev/null; then
 echo "Directory does not exist. Creating it..."
 # Test step to display datasets from ZOS
-zowe zos-files list data-set "ZOWE_USER.UNEMP.*"
+call zowe zos-files list data-set "ZOWE_USER.UNEMP.*"
 #
 zowe zos-files create uss-directory /z/$LOWERCASE_USERNAME/cobolcheck
 else
