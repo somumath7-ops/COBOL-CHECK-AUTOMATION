@@ -2,19 +2,14 @@
 # zowe_operations.sh
 
 # Provide direct path to zowe
-# Assign the path to a variable
-ZOWE_PATH="/usr/local/lib/zowe-cli/8.32.1"
+export INSTALL_DIR=/usr/lpp/zowe/v3
+./zowe-install.sh -I
 
-# Example: Change directory to the path
-cd "$ZOWE_PATH"
-
-# Example: List the contents
-ls "$ZOWE_PATH"
 # 1. Ensure npm binaries are in the PATH
-# export PATH=$PATH:$(npm config get prefix)/bin
+export PATH=$PATH:$(npm config get prefix)/bin
 
 # 2. Prevent Git Bash from remapping USS paths (useful for Windows users)
-#export MSYS_NO_PATHCONV=1
+export MSYS_NO_PATHCONV=1
 
 # Convert username to lowercase
 LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
