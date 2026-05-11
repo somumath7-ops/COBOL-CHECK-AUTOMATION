@@ -30,8 +30,8 @@ jobs:
       - name: Install Zowe CLI
         run: sudo npm install -g @zowe/cli@latest
 
-      - name: Add Zowe to PATH
-        run: echo "$HOME/.npm-global/bin" >> $GITHUB_PATH
+      - name: Add npm bin to PATH
+        run: echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
 
      # - name: Run Zowe Command
      #   run: |
@@ -71,7 +71,7 @@ jobs:
           ZOWE_USER: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASS: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-          echo "$HOME/.npm-global/bin" >> $GITHUB_PATH
+          echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
           chmod +x ./.github/scripts/zowe_operations.sh
           bash ./.github/scripts/zowe_operations.sh
           
