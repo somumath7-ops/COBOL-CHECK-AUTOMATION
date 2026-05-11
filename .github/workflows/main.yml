@@ -68,7 +68,8 @@ jobs:
           ZOWE_USER: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASS: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-          ./.github/scripts/zowe_operations.sh --host "$ZOWE_HOST" --port "$ZOWE_PORT" --user "$ZOWE_USER" --pass "$ZOWE_PASS" --reject-unauthorized false
+          chmod +x ./.github/scripts/zowe_operations.sh
+          bash ./.github/scripts/zowe_operations.sh
           
       - name: Set up Mainframe Environment and upload COBOL Check
         env:
