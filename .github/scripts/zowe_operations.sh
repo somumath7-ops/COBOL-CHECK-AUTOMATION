@@ -9,8 +9,6 @@ export PATH=$PATH:$(npm config get prefix)/bin
 # 2. Prevent Git Bash from remapping USS paths (useful for Windows users)
 export MSYS_NO_PATHCONV=1
 
-zowe --version
-
 # Convert username to lowercase
 LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
