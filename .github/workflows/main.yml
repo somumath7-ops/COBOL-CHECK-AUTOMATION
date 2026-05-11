@@ -37,6 +37,8 @@ jobs:
         run: echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
               npm root -g
 
+      
+
      # - name: Run Zowe Command
      #   run: |
      #     zowe zos-files list data-set "znnnnn.unemp.*" \
@@ -76,6 +78,7 @@ jobs:
           ZOWE_PASS: ${{ secrets.ZOWE_PASSWORD }}
         run: |
           echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
+          export PATH=$(npm bin):$PATH
           chmod u+x ./.github/scripts/zowe_operations.sh
           bash ./.github/scripts/zowe_operations.sh
           
