@@ -11,7 +11,14 @@
 
 # 1. Ensure npm binaries are in the PATH
 export PATH=$PATH:$(npm config get prefix)/bin
-zowe zos-files list data-set "Z84549.UNEMP.*"
+
+zowe config set "profiles.myZos.properties.host" "$ZOWE_HOST"
+zowe config set "profiles.myZos.properties.port" "$ZOWE_PORT"
+zowe config set "profiles.myZos.properties.user" "$ZOWE_USERNAME"
+zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
+
+echo "$ZOWE_HOST"
+
 # Convert username to lowercase
 LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 # Check if directory exists, create if it doesn't
