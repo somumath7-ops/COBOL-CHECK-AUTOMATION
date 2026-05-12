@@ -43,7 +43,6 @@ jobs:
 
       - name: Use Zowe path
         run: echo "The Zowe path is ${{ steps.set-path.outputs.zowe_path }}"
-
     
       steps:
       - name: Checkout Repository
