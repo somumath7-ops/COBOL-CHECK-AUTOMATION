@@ -64,6 +64,7 @@ jobs:
           chmod u+x ./.github/scripts/zowe_operations.sh
             ./.github/scripts/zowe_operations.sh
     #    shell: bash  
+    # Files changed from CRLF to LF
       
 
     #  - name: Run Zowe Command
