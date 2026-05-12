@@ -12,6 +12,12 @@ jobs:
     runs-on:  ubuntu-latest
 
     steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+        with: 
+            submodules: true
+            lfs: true 
+            
       - name: set up Java
         uses: actions/setup-java@v5
         with:
@@ -44,12 +50,7 @@ jobs:
       - name: Use Zowe path
         run: echo "The Zowe path is ${{ steps.set-path.outputs.zowe_path }}"
     
-      steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v5
-        with: 
-            submodules: true
-            lfs: true
+  
       - name: Run Zowe Script
         env:
           ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
