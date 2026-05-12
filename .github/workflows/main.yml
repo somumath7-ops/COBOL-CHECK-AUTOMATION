@@ -22,7 +22,7 @@ jobs:
 
       # 1. Ensure Node.js is installed
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: '24'
 
