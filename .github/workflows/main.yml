@@ -50,6 +50,9 @@ jobs:
 
       - name: Use Zowe path
         run: echo "The Zowe path is ${{ steps.set-path.outputs.zowe_path }}"
+
+      - name: Install dos2unix
+        run: sudo apt-get install -y dos2unix
     
   
       - name: Run Zowe Script
