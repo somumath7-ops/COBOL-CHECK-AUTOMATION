@@ -12,22 +12,23 @@
 # 1. Ensure npm binaries are in the PATH
 export PATH=$PATH:$(npm config get prefix)/bin
 
-#zowe config set "profiles.myZos.properties.host" "$ZOWE_HOST"
-#zowe config set "profiles.myZos.properties.port" "$ZOWE_PORT"
-#zowe config set "profiles.myZos.properties.user" "$ZOWE_USERNAME"
-#zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
+zowe config set "profiles.myZos.properties.host" "$ZOWE_HOST"
+zowe config set "profiles.myZos.properties.port" "$ZOWE_PORT"
+zowe config set "profiles.myZos.properties.user" "$ZOWE_USERNAME"
+zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
 
-#echo "$ZOWE_HOST"
+echo "$ZOWE_HOST"
 
-export ZOWE_OPT_HOST=$ZOWE_HOST
-export ZOWE_OPT_PORT=$ZOWE_PORT
-export ZOWE_OPT_USERNAME=$ZOWE_USERNAME
-export ZOWE_OPT_PASSWORD=$ZOWE_PASSWORD
+#export ZOWE_OPT_HOST=$ZOWE_HOST
+#export ZOWE_OPT_PORT=$ZOWE_PORT
+#export ZOWE_OPT_USERNAME=$ZOWE_USERNAME
+#export ZOWE_OPT_PASSWORD=$ZOWE_PASSWORD
 
-echo "Host is $ZOWE_HOST"
+echo "I am at the beginning of the script now with Host = $ZOWE_HOST etc."
 
 # Convert username to lowercase
 LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
+echo "LOWERCASE_USERNAME"
 # Check if directory exists, create if it doesn't
 if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" &>/dev/null; then
 echo "Directory does not exist. Creating it..."
