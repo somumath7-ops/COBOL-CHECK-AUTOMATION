@@ -36,7 +36,14 @@ jobs:
       - name: Add npm bin to PATH
         run: echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
               npm root -g
-         
+              
+      - name: Find Zowe path
+        id: set-path
+        run: echo "zowe_path=$(which zowe)" >> $GITHUB_OUTPUT
+
+      - name: Use Zowe path
+        run: echo "The Zowe path is ${{ steps.set-path.outputs.zowe_path }}"
+      
 
       - name: Run Zowe Command
         run: |
@@ -59,7 +66,7 @@ jobs:
 
   #2 Main Job - COBOL Check      
   cobol-check:
- #   if: false
+    if: false
     runs-on: ubuntu-latest
     needs: Setup-java-and-zowe
 
