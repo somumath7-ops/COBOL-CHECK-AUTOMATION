@@ -54,10 +54,10 @@ jobs:
   
       - name: Run Zowe Script
         env:
-          ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
-          ZOWE_PORT: ${{ secrets.ZOWE_PORT }}
-          ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
-          ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+          ZOWE_OPT_HOST: ${{ secrets.ZOWE_HOST }}
+          ZOWE_OPT_PORT: ${{ secrets.ZOWE_PORT }}
+          ZOWE_OPT_USERNAME: ${{ secrets.ZOWE_USERNAME }}
+          ZOWE_OPT_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
           echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
           export PATH=$(npm bin):$PATH
