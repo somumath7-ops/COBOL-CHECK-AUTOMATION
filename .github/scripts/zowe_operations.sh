@@ -3,11 +3,11 @@
 
 # Provide direct path to zowe
 
-zowe_path=$(which zowe)
-if [ -z "$zowe_path" ]; then
-    echo "Zowe CLI not found. Please ensure it is installed and in your PATH."
-    exit 1
-fi      
+#zowe_path=$(which zowe)
+#if [ -z "$zowe_path" ]; then
+#    echo "Zowe CLI not found. Please ensure it is installed and in your PATH."
+#    exit 1
+#fi      
 
 # 1. Ensure npm binaries are in the PATH
 export PATH=$PATH:$(npm config get prefix)/bin
@@ -21,7 +21,7 @@ LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
 if ! zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck" &>/dev/null; then
 echo "Directory does not exist. Creating it..."
 # Test step to display datasets from ZOS
-zowe zos-files list data-set "ZOWE_USER.UNEMP.*"
+#zowe zos-files list data-set "ZOWE_USER.UNEMP.*"
 #
 zowe zos-files create uss-directory /z/$LOWERCASE_USERNAME/cobolcheck
 else
