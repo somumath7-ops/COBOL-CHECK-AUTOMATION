@@ -51,9 +51,11 @@ jobs:
           ZOWE_USER: ${{ secrets.ZOWE_USERNAME }}
           ZOWE_PASS: ${{ secrets.ZOWE_PASSWORD }}
         run: |
-         chmod u+x ./.github/scripts/zowe_operations.sh
+          echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
+          export PATH=$(npm bin):$PATH
+          chmod u+x ./.github/scripts/zowe_operations.sh
             ./.github/scripts/zowe_operations.sh
-    #    shell: bash  
+        shell: bash  
       
 
     #  - name: Run Zowe Command
