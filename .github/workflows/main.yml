@@ -35,6 +35,7 @@ jobs:
       # 2. Install Zowe CLI globally
       - name: Install Zowe CLI
         run: sudo npm install -g @zowe/cli@latest
+             sudo zowe config init --global-config 
 
       - name: Locate Zowe in Git root
         run: sudo npm list -g @zowe/cli
