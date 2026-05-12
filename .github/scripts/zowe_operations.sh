@@ -17,7 +17,7 @@ zowe config set "profiles.myZos.properties.port" "$ZOWE_PORT"
 zowe config set "profiles.myZos.properties.user" "$ZOWE_USERNAME"
 zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
 
-zowe profiles set-default zosmf myZos
+zowe config set "defaults.zosmf" "myZos"
 
 echo "$ZOWE_HOST"
 
