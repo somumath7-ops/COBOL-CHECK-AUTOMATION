@@ -56,8 +56,8 @@ jobs:
         env:
           ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
           ZOWE_PORT: ${{ secrets.ZOWE_PORT }}
-          ZOWE_USER: ${{ secrets.ZOWE_USERNAME }}
-          ZOWE_PASS: ${{ secrets.ZOWE_PASSWORD }}
+          ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
+          ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
         run: |
           echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
           export PATH=$(npm bin):$PATH
