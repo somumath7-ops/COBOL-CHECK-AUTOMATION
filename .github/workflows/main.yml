@@ -45,14 +45,14 @@ jobs:
         run: echo "The Zowe path is ${{ steps.set-path.outputs.zowe_path }}"
       
 
-      - name: Run Zowe Command
-        run: |
-           zowe zos-files list data-set "z84549.unemp.*" \
-            --host ${{ secrets.ZOWE_HOST }} \
-            --port ${{ secrets.ZOWE_PORT }} \
-            --user ${{ secrets.ZOWE_USERNAME }} \
-            --pass ${{ secrets.ZOWE_PASSWORD }} \
-            --reject-unauthorized false
+    #  - name: Run Zowe Command
+    #    run: |
+    #       zowe zos-files list data-set "z84549.unemp.*" \
+    #        --host ${{ secrets.ZOWE_HOST }} \
+    #        --port ${{ secrets.ZOWE_PORT }} \
+    #        --user ${{ secrets.ZOWE_USERNAME }} \
+    #        --pass ${{ secrets.ZOWE_PASSWORD }} \
+    #        --reject-unauthorized false
 
       #- name: Create .zowe directory and config file
       #  run: |
@@ -77,6 +77,16 @@ jobs:
           submodules: true
           lfs: true
 
+    
+      - name: Run Zowe Command
+        run: |
+           zowe zos-files list data-set "z84549.unemp.*" \
+            --host ${{ secrets.ZOWE_HOST }} \
+            --port ${{ secrets.ZOWE_PORT }} \
+            --user ${{ secrets.ZOWE_USERNAME }} \
+            --pass ${{ secrets.ZOWE_PASSWORD }} \
+            --reject-unauthorized false
+            
       - name: Run Zowe Script
         env:
           ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
