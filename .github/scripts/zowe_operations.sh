@@ -43,11 +43,11 @@ echo "Directory already exists."
 fi
 #
 # Initialize sparse checkout
-git sparse-checkout init --cone
-git sparse-checkout set "cobol-check"
-git checkout main
+#git sparse-checkout init --cone
+#git sparse-checkout set "cobol-check"
+#git checkout main
 # Upload files
-zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar" 
+LC_CTYPE=C zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar" 
 # Verify upload
 echo "Verifying upload:"
 zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck"
