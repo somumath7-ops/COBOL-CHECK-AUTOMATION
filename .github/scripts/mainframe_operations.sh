@@ -1,13 +1,21 @@
 #!/bin/bash
 # mainframe_operations.sh
 # Set up environment
-export PATH=$PATH:/usr/lpp/java/J8.0_64/bin
-export JAVA_HOME=/usr/lpp/java/J8.0_64
-export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
+#export PATH=$PATH:/usr/lpp/java/J8.0_64/bin
+#export JAVA_HOME=/usr/lpp/java/J8.0_64
+#export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 # Check Java availability
-java -version
+export PATH=$PATH:$(npm config get prefix)/bin
+
+zowe config set "profiles.myZos.properties.host" "$ZOWE_HOST"
+zowe config set "profiles.myZos.properties.port" "$ZOWE_PORT"
+zowe config set "profiles.myZos.properties.user" "$ZOWE_USERNAME"
+zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
+
+zowe config set "defaults.zosmf" "myZos"
+#java -version
 # Set ZOWE_USERNAME
-ZOWE_USERNAME="Z84549" # Replace with the actual username
+#ZOWE_USERNAME="Z84549" # Replace with the actual username
 # Change to the cobolcheck directory
 cd cobolcheck
 echo "Changed to $(pwd)"
@@ -30,7 +38,7 @@ echo "Cobolcheck execution completed for $program (exceptions may have occurred)
 # Check if CC##99.CBL was created, regardless of cobolcheck exit status
 if [ -f "CC##99.CBL" ]; then
 # Copy to the MVS dataset
-if cp CC##99.CBL "//'${ZOWE_USERNAME}.CBL($program)'"; then
+if cp "CC##99.CBL" "//'${ZOWE_USERNAME}.CBL($program)'"; then
 echo "Copied CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
 else
 echo "Failed to copy CC##99.CBL to ${ZOWE_USERNAME}.CBL($program)"
