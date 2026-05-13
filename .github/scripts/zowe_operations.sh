@@ -10,6 +10,7 @@
 #fi      
 
 # 1. Ensure npm binaries are in the PATH
+
 export PATH=$PATH:$(npm config get prefix)/bin
 
 zowe config set "profiles.myZos.properties.host" "$ZOWE_HOST"
@@ -47,7 +48,9 @@ fi
 #git sparse-checkout set "cobol-check"
 #git checkout main
 # Upload files
-LC_CTYPE=C zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar" 
+export LC_ALL=EN_US.UTF-8
+export LANG=EN_US.UTF-8
+zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar" 
 # Verify upload
 echo "Verifying upload:"
 zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck"
