@@ -48,9 +48,14 @@ fi
 #git sparse-checkout set "cobol-check"
 #git checkout main
 # Upload files
-export LC_ALL=EN_US.UTF-8
-export LANG=EN_US.UTF-8
-zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar" 
+#export LC_ALL=EN_US.UTF-8
+#export LANG=EN_US.UTF-8
+#zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck" --recursive --binary-files "cobol-check-0.2.9.jar" 
+#zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck/bin" --recursive --binary-files "cobol-check-0.2.9.jar" 
+zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck/scripts" ----remote-encoding EBCDIC
+zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck/src" ----remote-encoding EBCDIC
+zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck/config.properties" ----remote-encoding EBCDIC
+
 # Verify upload
 echo "Verifying upload:"
 zowe zos-files list uss-files "/z/$LOWERCASE_USERNAME/cobolcheck"
