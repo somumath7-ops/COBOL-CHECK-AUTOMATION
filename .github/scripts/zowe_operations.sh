@@ -62,7 +62,8 @@ fi
 # They have been commented out since they were tried ony by one. --recursive -to copy all folders and subfolders and their contents.
 #zowe zos-files upload dir-to-uss "./cobol-check" "/z/$LOWERCASE_USERNAME/cobolcheck/bin" --recursive --binary-files "cobol-check-0.2.9.jar" 
 #zowe zos-files upload dir-to-uss "./cobol-check/scripts" "/z/$LOWERCASE_USERNAME/cobolcheck/scripts" --encoding "IBM-1047"
-zowe zos-files upload dir-to-uss "./cobol-check/src" "/z/$LOWERCASE_USERNAME/cobolcheck/src" --recursive --encoding "IBM-1047"
+#zowe zos-files upload dir-to-uss "./cobol-check/src" "/z/$LOWERCASE_USERNAME/cobolcheck/src" --recursive --encoding "IBM-1047"
+zowe zos-files upload file-to-uss "./cobol-check/NUMBERS.JCL" "/z/$LOWERCASE_USERNAME/cobolcheck" --encoding "IBM-1047"
 
 # The follwoing is used to upload the lone file at the root of cobol-check. So, used file-to-uss and not dir-to-uss like in others. 
 #zowe zos-files upload file-to-uss "./cobol-check/config.properties" "/z/$LOWERCASE_USERNAME/cobolcheck" --encoding "IBM-1047"
