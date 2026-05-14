@@ -66,7 +66,8 @@ jobs:
           export PATH=$(npm bin):$PATH
           dos2unix ./.github/scripts/mainframe_operations.sh
           chmod u+x .github/scripts/mainframe_operations.sh
-          .github/scripts/mainframe_operations.sh
+          sshpass -p "$ZOWE_PASSWORD" ssh -o StrictHostKeyChecking=no $ZOWE_USERNAME@204.90.115.200 'sh -s' < .github/scripts/mainframe_operations.sh
+    #      .github/scripts/mainframe_operations.sh
         # chmod u+x ./.github/scripts/zowe_operations.sh
         # dos2unix ./.github/scripts/zowe_operations.sh
         #   ./.github/scripts/zowe_operations.sh
