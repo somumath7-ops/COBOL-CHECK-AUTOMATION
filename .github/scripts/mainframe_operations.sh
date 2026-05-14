@@ -14,6 +14,13 @@ zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
 
 zowe config set "defaults.zosmf" "myZos"
 
+# Set up environment
+
+export PATH=$PATH:/usr/lpp/java/J25.0_64/bin
+export JAVA_HOME=/usr/lpp/java/J25.0_64
+export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
+
+
 # Check Java availability
 java -version
 
