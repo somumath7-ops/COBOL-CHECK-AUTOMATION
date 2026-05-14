@@ -64,11 +64,13 @@ jobs:
         run: |
           echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
           export PATH=$(npm bin):$PATH
-          chmod u+x ./.github/scripts/zowe_operations.sh
-          dos2unix ./.github/scripts/zowe_operations.sh
-            ./.github/scripts/zowe_operations.sh
+          dos2unix ./.github/scripts/mainframe_operations.sh
           chmod u+x .github/scripts/mainframe_operations.sh
           .github/scripts/mainframe_operations.sh
+        # chmod u+x ./.github/scripts/zowe_operations.sh
+        # dos2unix ./.github/scripts/zowe_operations.sh
+        #   ./.github/scripts/zowe_operations.sh
+        
     #    shell: bash  
 
     #  - name: Run Mainframe Environment Script
