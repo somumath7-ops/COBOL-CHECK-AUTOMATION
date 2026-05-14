@@ -20,10 +20,10 @@ zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
 
 zowe config set "defaults.zosmf" "myZos"
 
-export PATH=$PATH:/usr/lpp/java/J25.0_64/bin
-export JAVA_HOME=/path/to/your/jdk-25
-export PATH=$JAVA_HOME/bin:$PATH
-export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
+#export PATH=$PATH:/usr/lpp/java/J25.0_64/bin
+#export JAVA_HOME=/path/to/your/jdk-25
+#export PATH=$JAVA_HOME/bin:$PATH
+#export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
 
 #echo "$ZOWE_HOST"
 
