@@ -21,17 +21,17 @@ java -version
 ZOWE_USERNAME="Z84549"  # Replace with your actual username
 
 # Change to the cobolcheck directory
-cd cobolcheck
+cd "/z/$LOWERCASE_USERNAME/cobolcheck"
 echo "Changed to $(pwd)"
 ls -al
 
 # Make cobolcheck executable
-chmod +x cobolcheck
+chmod u+x "/z/$LOWERCASE_USERNAME/cobolcheck"
 echo "Made cobolcheck executable"
 
 # Make script in scripts directory executable
-cd scripts
-chmod +x linux_gnucobol_run_tests
+cd "/z/$LOWERCASE_USERNAME/cobolcheck/scripts"
+chmod u+x linux_gnucobol_run_tests
 echo "Made linux_gnucobol_run_tests executable"
 cd ..
 
