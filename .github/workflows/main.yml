@@ -55,18 +55,18 @@ jobs:
         run: sudo apt-get install -y dos2unix
     
   
-    #  - name: Run Zowe Operations Script
-    #    env:
-    #      ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
-    #      ZOWE_PORT: ${{ secrets.ZOWE_PORT }}
-    #      ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
-    #      ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
-    #    run: |
-    #      echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
-    #      export PATH=$(npm bin):$PATH
-    #      chmod u+x ./.github/scripts/zowe_operations.sh
-    #      dos2unix ./.github/scripts/zowe_operations.sh
-    #        ./.github/scripts/zowe_operations.sh
+      - name: Run Zowe Operations Script
+        env:
+          ZOWE_HOST: ${{ secrets.ZOWE_HOST }}
+          ZOWE_PORT: ${{ secrets.ZOWE_PORT }}
+          ZOWE_USERNAME: ${{ secrets.ZOWE_USERNAME }}
+          ZOWE_PASSWORD: ${{ secrets.ZOWE_PASSWORD }}
+        run: |
+          echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
+          export PATH=$(npm bin):$PATH
+          chmod u+x ./.github/scripts/zowe_operations.sh
+          dos2unix ./.github/scripts/zowe_operations.sh
+            ./.github/scripts/zowe_operations.sh
     #    shell: bash  
 
       - name: Run Mainframe Environment Script
@@ -79,9 +79,9 @@ jobs:
           echo "$(npm config get prefix)/bin" >> $GITHUB_PATH
           export PATH=$(npm bin):$PATH
           sshpass -p "$ZOWE_PASSWORD" ssh -o StrictHostKeyChecking=no $ZOWE_USERNAME@204.90.115.200 'sh -s' < .github/scripts/mainframe_operations.sh
-    #      chmod u+x .github/scripts/mainframe_operations.sh
-    #      dos2unix ./.github/scripts/mainframe_operations.sh
-    #         .github/scripts/mainframe_operations.sh
+          chmod u+x .github/scripts/mainframe_operations.sh
+          dos2unix ./.github/scripts/mainframe_operations.sh
+             .github/scripts/mainframe_operations.sh
           
 
       
