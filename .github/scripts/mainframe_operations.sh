@@ -44,7 +44,7 @@ echo "Made linux_gnucobol_run_tests executable"
 cd ..
 
 # Function to run cobolcheck and copy files
-run_cobolcheck() {
+run_cobolcheck(NUMBERS.CBL) {
   program=$1
   echo "Running cobolcheck for $program"
 
