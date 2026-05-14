@@ -20,14 +20,19 @@ zowe config set "profiles.myZos.properties.password" "$ZOWE_PASSWORD"
 
 zowe config set "defaults.zosmf" "myZos"
 
-echo "$ZOWE_HOST"
+export PATH=$PATH:/usr/lpp/java/J25.0_64/bin
+export JAVA_HOME=/path/to/your/jdk-25
+export PATH=$JAVA_HOME/bin:$PATH
+export PATH=$PATH:/usr/lpp/zowe/cli/node/bin
+
+#echo "$ZOWE_HOST"
 
 #export ZOWE_OPT_HOST=$ZOWE_HOST
 #export ZOWE_OPT_PORT=$ZOWE_PORT
 #export ZOWE_OPT_USERNAME=$ZOWE_USERNAME
 #export ZOWE_OPT_PASSWORD=$ZOWE_PASSWORD
 
-echo "I am at the beginning of the script now with Host = $ZOWE_HOST etc."
+#echo "I am at the beginning of the script now with Host = $ZOWE_HOST etc."
 
 # Convert username to lowercase
 LOWERCASE_USERNAME=$(echo "$ZOWE_USERNAME" | tr '[:upper:]' '[:lower:]')
